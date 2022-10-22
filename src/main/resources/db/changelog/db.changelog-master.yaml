@@ -1,0 +1,56 @@
+databaseChangeLog:
+- changeSet:
+    id: changeLog-0
+    author: Ravi
+    changes:
+      - sqlFile:
+          path: /db/changelog/changes/1.0.sample-script.sql
+
+- changeSet:
+    id: changeLog-1
+    author: Ravi
+    changes:
+      - sqlFile:
+          path: /db/changelog/changes/1.1_camunda_create_decision_engine.sql
+          
+- changeSet:
+    id: changeLog-2
+    author: Ravi
+    changes:
+      - sqlFile:
+          path: /db/changelog/changes/1.2_camunda_create_decision_history.sql
+          
+- changeSet:
+    id: changeLog-3
+    author: Ravi
+    changes:
+      - sqlFile:
+          path: /db/changelog/changes/1.3_camunda_create_engine.sql
+          
+- changeSet:
+    id: changeLog-4
+    author: Ravi
+    changes:
+      - sqlFile:
+          path: /db/changelog/changes/1.4_camunda_create_history.sql
+          
+- changeSet:
+    id: changeLog-5
+    author: Ravi
+    changes:
+      - sqlFile:
+          path: /db/changelog/changes/1.5_camunda_create_identity.sql
+          
+- changeSet:
+    id: changeLog-6
+    author: Ravi
+    changes:
+      - sqlFile:
+          path: /db/changelog/changes/1.6_camunda_create_case_engine.sql
+          
+- changeSet:
+    id: changeLog-7
+    author: Ravi
+    changes:
+      - sqlFile:
+          path: /db/changelog/changes/1.7_camunda_create_case_history.sql
