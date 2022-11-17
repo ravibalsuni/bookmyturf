@@ -48,6 +48,7 @@ public class LoginController {
 		try {
 			Authentication authentication= authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));	
 			String token = jwtService.generateToken(authentication.getName());
+			log.info("token - "+token);
 			return ResponseEntity.ok(new JwtResponse(token));
 		}catch (Exception e) {
 			return ResponseEntity.badRequest().body("Failed to login");

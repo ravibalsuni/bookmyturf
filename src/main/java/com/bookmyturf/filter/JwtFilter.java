@@ -35,6 +35,7 @@ public class JwtFilter extends OncePerRequestFilter{
 
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)throws ServletException, IOException {
+		log.info("doFilterInternal()");
 		String authorizationHeader=request.getHeader(HttpHeaders.AUTHORIZATION);
 		String token=null;
 		String userName=null;
@@ -43,6 +44,7 @@ public class JwtFilter extends OncePerRequestFilter{
 			try {
 				token=authorizationHeader.split(" ")[1].trim();
 				userName=jwtservice.extractUsername(token);
+				log.info("doFilterInternal() - username : "+userName);
 			}
 			catch (Exception e) {
 				log.info("unable to authenticate user, bad request");
@@ -51,7 +53,7 @@ public class JwtFilter extends OncePerRequestFilter{
 		 if (userName != null && SecurityContextHolder.getContext().getAuthentication() == null) {
 
 	            UserDetails userDetails = new User(userName, "dummy-pwd", new ArrayList<>());
-
+	            log.info("doFilterInternal() userdetails : "+userDetails);
 	            if (jwtservice.validateToken(token, userDetails)) {
 
 	                UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken =
@@ -61,6 +63,7 @@ public class JwtFilter extends OncePerRequestFilter{
 	                SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
 	            }
 	        }
+		log.info("calling doFilter()");
 		filterChain.doFilter(request, response);
 	}
 
