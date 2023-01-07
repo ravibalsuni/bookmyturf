@@ -54,3 +54,10 @@ databaseChangeLog:
     changes:
       - sqlFile:
           path: /db/changelog/changes/1.7_camunda_create_case_history.sql
+          
+- changeSet:
+    id: changeLog-8
+    author: Ravi
+    changes:
+      - sqlFile:
+          path: /db/changelog/changes/1.8_custom_tables.sql
