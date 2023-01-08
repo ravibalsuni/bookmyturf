@@ -92,7 +92,12 @@ public class TurfServiceImpl implements TurfService {
 
 	@Override
 	public List<Turf> findByapprovalStatus(String approvalStatus) {
-		return turfRepo.findByapprovalStatus(approvalStatus);
+		return turfRepo.findByApprovalStatus(approvalStatus);
+	}
+
+	@Override
+	public List<Turf> findByTurfStatusAndApprovalStatus(String turfStatus, String approvalStatus) {
+		return turfRepo.findByTurfStatusAndApprovalStatus(turfStatus, approvalStatus);
 	}
 
 }

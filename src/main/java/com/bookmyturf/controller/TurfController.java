@@ -23,5 +23,8 @@ public interface TurfController {
 	
 	@ApiOperation("Update turf approval status")
 	TurfDTO updateApprovalStatus(@RequestBody TurfDTO dto);
+
+	@ApiOperation("find by available status")
+	List<TurfDTO> findByTurfStatusAndApprovalStatus();
 	
 }

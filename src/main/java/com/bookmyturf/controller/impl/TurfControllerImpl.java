@@ -62,6 +62,13 @@ public class TurfControllerImpl implements TurfController {
 	
 	@Override
 	@CrossOrigin("*")
+	@GetMapping("/search/status/available")
+	public List<TurfDTO> findByTurfStatusAndApprovalStatus() {
+		return mapper.asDTOList(service.findByTurfStatusAndApprovalStatus("Available", "Approved"));
+	}
+	
+	@Override
+	@CrossOrigin("*")
 	@PostMapping("/update/status")
 	public TurfDTO updateApprovalStatus(TurfDTO dto) {
 		TurfDTO dtoResponse = findById(dto.getId());
