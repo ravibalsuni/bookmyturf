@@ -5,6 +5,7 @@ create table turf(
 	address varchar(max),
 	owner_id varchar(50),
 	turf_status varchar(50),
+	approval_status varchar(50),
 	primary key(id)
 );
 

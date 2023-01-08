@@ -31,6 +31,8 @@ public class Turf implements Serializable {
 	private String  ownerId;
 	@Column(name="turf_status")
 	private String turfStatus;
+	@Column(name="approval_status")
+	private String approvalStatus;
 	
 	public int getId() {
 		return id;
@@ -80,9 +82,18 @@ public class Turf implements Serializable {
 		this.turfStatus = turfStatus;
 	}
 
+	public String getApprovalStatus() {
+		return approvalStatus;
+	}
+
+	public void setApprovalStatus(String approvalStatus) {
+		this.approvalStatus = approvalStatus;
+	}
+
 	@Override
 	public String toString() {
-		return "Turf [turfId=" + id + ", name=" + name + ", pin=" + pin + ", address=" + address + ", ownerId="
-				+ ownerId + ", turfStatus=" + turfStatus + "]";
+		return "Turf [id=" + id + ", name=" + name + ", pin=" + pin + ", address=" + address + ", ownerId=" + ownerId
+				+ ", turfStatus=" + turfStatus + ", approvalStatus=" + approvalStatus + "]";
 	}
+
 }

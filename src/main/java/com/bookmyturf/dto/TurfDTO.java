@@ -7,6 +7,7 @@ public class TurfDTO extends AbstractDTO<Integer> {
 	private String address;
 	private String ownerId;
 	private String turfStatus;
+	private String approvalStatus;
 	
 	public String getName() {
 		return name;
@@ -38,4 +39,16 @@ public class TurfDTO extends AbstractDTO<Integer> {
 	public void setTurfStatus(String turfStatus) {
 		this.turfStatus = turfStatus;
 	}
+	public String getApprovalStatus() {
+		return approvalStatus;
+	}
+	public void setApprovalStatus(String approvalStatus) {
+		this.approvalStatus = approvalStatus;
+	}
+	@Override
+	public String toString() {
+		return "TurfDTO [name=" + name + ", pin=" + pin + ", address=" + address + ", ownerId=" + ownerId
+				+ ", turfStatus=" + turfStatus + ", approvalStatus=" + approvalStatus + "]";
+	}
+	
 }

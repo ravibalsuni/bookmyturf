@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,7 +35,7 @@ public class TurfControllerImpl implements TurfController {
 	@Override
 	@CrossOrigin("*")
 	@PostMapping("/save")
-	public TurfDTO save(@RequestBody TurfDTO dto) {
+	public TurfDTO save(TurfDTO dto) {
 		log.info("turf Dto - "+dto);
 		Turf entity = mapper.asEntity(dto);
 		log.info("turf entity - "+entity);
@@ -54,9 +55,18 @@ public class TurfControllerImpl implements TurfController {
 
 	@Override
 	@CrossOrigin("*")
-	@GetMapping("/search")
-	public List<TurfDTO> findAll() {
-		return mapper.asDTOList(service.findAll());
+	@GetMapping("/search/status/pending")
+	public List<TurfDTO> findByapprovalStatus() {
+		return mapper.asDTOList(service.findByapprovalStatus("Pending"));
+	}
+	
+	@Override
+	@CrossOrigin("*")
+	@PostMapping("/update/status")
+	public TurfDTO updateApprovalStatus(TurfDTO dto) {
+		TurfDTO dtoResponse = findById(dto.getId());
+		dtoResponse.setApprovalStatus("Approved");
+		return save(dtoResponse);
 	}
 
 }

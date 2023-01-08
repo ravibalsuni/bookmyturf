@@ -1,5 +1,6 @@
 package com.bookmyturf.service;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.data.domain.Page;
@@ -10,5 +11,7 @@ import com.bookmyturf.entity.Turf;
 public interface TurfService extends GenericService<Turf, Integer> {
 	
 	Page<Turf> search(Map<String, String> searchCriteria, Pageable pageable);
+
+	List<Turf> findByapprovalStatus(String approvalStatus);
 
 }

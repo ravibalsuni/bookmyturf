@@ -15,6 +15,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.bookmyturf.dto.TurfDTO;
 import com.bookmyturf.entity.Turf;
 import com.bookmyturf.repository.TurfRepo;
 import com.bookmyturf.service.TurfService;
@@ -87,6 +88,11 @@ public class TurfServiceImpl implements TurfService {
 	public Page<Turf> search(Map<String, String> searchCriteria, Pageable pageable) {
 		
 		return null;
+	}
+
+	@Override
+	public List<Turf> findByapprovalStatus(String approvalStatus) {
+		return turfRepo.findByapprovalStatus(approvalStatus);
 	}
 
 }
