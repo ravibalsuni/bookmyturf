@@ -38,9 +38,4 @@ public class TurfDTO extends AbstractDTO<Integer> {
 	public void setTurfStatus(String turfStatus) {
 		this.turfStatus = turfStatus;
 	}
-	@Override
-	public String toString() {
-		return "TurfDTO [turfId=" + id + ", name=" + name + ", pin=" + pin + ", address=" + address + ", ownerId="
-				+ ownerId + ", turfStatus=" + turfStatus + "]";
-	}	
 }

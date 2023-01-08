@@ -10,10 +10,8 @@ import com.bookmyturf.entity.Turf;
 public interface TurfMapper extends GenericMapper<Turf, TurfDTO> {
 
 	@Override
-	@Mapping(target = "id")
 	Turf asEntity(TurfDTO dto);
 	
 	@Override
-	@Mapping(target = "id")
 	TurfDTO asDTO(Turf entity);
 }

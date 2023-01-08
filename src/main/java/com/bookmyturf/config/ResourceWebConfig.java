@@ -50,9 +50,9 @@ public class ResourceWebConfig implements WebMvcConfigurer{
 	}
 
 	private ApiInfo apiInfoMetaData() {
-		return new ApiInfoBuilder().title("BookMyTurf Services")
+		return new ApiInfoBuilder().title("Turf Booking Services")
 				.description("API Endpoints")
-				.contact(new Contact("Ravi", "http://localhost:8080", "ravi.balsuni26@gmail.com"))
+				.contact(new Contact("Turf Booking Team", "http://localhost:8080", "turfbooking@gmail.com"))
 				.license("Apache 2.0")
 				.version("1.0.0")
 				.build();

@@ -20,16 +20,16 @@ public class Turf implements Serializable {
 	@Id
 	@Column(name="id")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private int id;
+	private Integer id;
 	@Column(name="name")
 	private String name;
 	@Column(name="pin")
 	private String pin;
 	@Column(name="address")
 	private String address;
-	@Column(name="owner_Id")
+	@Column(name="owner_id")
 	private String  ownerId;
-	@Column(name="turf_Status")
+	@Column(name="turf_status")
 	private String turfStatus;
 	
 	public int getId() {

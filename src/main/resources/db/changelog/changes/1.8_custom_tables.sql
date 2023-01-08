@@ -3,22 +3,34 @@ create table turf(
 	name varchar(100) not null,
 	pin varchar(50) not null,
 	address varchar(max),
-	owner_Id varchar(50),
-	turf_Status varchar(50),
+	owner_id varchar(50),
+	turf_status varchar(50),
 	primary key(id)
 );
 
-create table turfBooking(
+create table turf_Booking(
 	id varchar(50) not null,
-	turf_Id varchar(50) not null,
-	createdDateTime Date not null,
-	bookingDateTime Date not null,
-	createdBy varchar(50),
-	booking_Status varchar(50),
+	turf_id varchar(50) not null,
+	created_datetime varchar(50) not null,
+	booking_datetime varchar(50) not null,
+	booking_date varchar(50) not null,
+	booking_timeslot varchar(50) not null,
+	created_by varchar(50),
+	booking_status varchar(50),
+	availability_status varchar(50),
+	duration varchar(50)
 	primary key(id)
 );
 
-USE [bookmyturfDB]
+create table turf_Availability(
+	id varchar(50) not null,
+	turf_id varchar(50) not null,
+	available_date varchar(50) not null,
+	available_time varchar(50) not null,
+	availability_status varchar(50)
+);
+
+
 GO
 CREATE SEQUENCE [dbo].[hibernate_sequence] 
  AS [bigint]

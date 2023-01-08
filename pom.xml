@@ -19,30 +19,16 @@
 		<testcontainers.version>1.17.2</testcontainers.version>
 		<camunda.version>7.17.0</camunda.version>
 	</properties>
-	<dependencyManagement> 
-		<dependencies> 
-			<dependency> 
-				<groupId>org.springframework.cloud</groupId> 
-				<artifactId>spring-cloud-dependencies</artifactId> 
-				<version>${spring-cloud.version}</version> 
-				<type>pom</type> 
-				<scope>import</scope> 
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.camunda.bpm</groupId>
+				<artifactId>camunda-bom</artifactId>
+				<version>${camunda.version}</version>
+				<scope>import</scope>
+				<type>pom</type>
 			</dependency>
-			<dependency> 
-				<groupId>org.testcontainers</groupId> 
-				<artifactId>testcontainers-bom</artifactId> 
-				<version>${testcontainers.version}</version> 
-				<type>pom</type> 
-				<scope>import</scope> 
-			</dependency>  
-			<dependency> 
-				<groupId>org.camunda.bpm</groupId> 
-				<artifactId>camunda-bom</artifactId> 
-				<version>${camunda.version}</version> 
-				<scope>import</scope> 
-				<type>pom</type> 
-			</dependency> 
-		</dependencies> 
+		</dependencies>
 	</dependencyManagement>
 
 	<dependencies>
@@ -73,10 +59,6 @@
 			<artifactId>mssql-jdbc</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-webflux</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>org.liquibase</groupId>
 			<artifactId>liquibase-core</artifactId>
 		</dependency>
@@ -87,18 +69,6 @@
 		<dependency>
 			<groupId>org.camunda.bpm.springboot</groupId>
 			<artifactId>camunda-bpm-spring-boot-starter-webapp</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-circuitbreaker-reactor-resilience4j</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-sleuth</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -119,66 +89,28 @@
 			<artifactId>springfox-boot-starter</artifactId>
 			<version>3.0.0</version>
 		</dependency>
+
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>junit</groupId>
-					<artifactId>junit</artifactId>
-				</exclusion>
-			</exclusions>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct-processor</artifactId>
+			<version>1.5.3.Final</version>
 		</dependency>
+
 		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-engine</artifactId>
-			<scope>test</scope>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct</artifactId>
+			<version>1.5.3.Final</version>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.integration</groupId>
-			<artifactId>spring-integration-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.kafka</groupId>
-			<artifactId>spring-kafka-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-test</artifactId>
-			<scope>test</scope>
-		</dependency>
+
+		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-test</artifactId> 
+			<scope>test</scope> <exclusions> <exclusion> <groupId>junit</groupId> <artifactId>junit</artifactId> 
+			</exclusion> </exclusions> </dependency> -->
+		<!-- <dependency> <groupId>org.junit.jupiter</groupId> <artifactId>junit-jupiter-engine</artifactId> 
+			<scope>test</scope> </dependency> -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-configuration-processor</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.testcontainers</groupId>
-			<artifactId>kafka</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.testcontainers</groupId>
-			<artifactId>junit-jupiter</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.testcontainers</groupId>
-			<artifactId>mongodb</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.testcontainers</groupId>
-			<artifactId>mssqlserver</artifactId>
-			<scope>test</scope>
 		</dependency>
 	</dependencies>
 	<build>
@@ -195,10 +127,6 @@
 					</excludes>
 				</configuration>
 			</plugin>
-			<plugin>
-			    <groupId>org.apache.maven.plugins</groupId>
-			    <artifactId>maven-resources-plugin</artifactId>
-			</plugin>  
 		</plugins>
 	</build>
 	<repositories>

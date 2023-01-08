@@ -15,22 +15,22 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.bookmyturf.entity.Turf;
-import com.bookmyturf.repository.TurfRepo;
-import com.bookmyturf.service.TurfService;
+import com.bookmyturf.entity.TurfBooking;
+import com.bookmyturf.repository.TurfBookingRepo;
+import com.bookmyturf.service.TurfBookingService;
 
 @Service
 @Transactional
-public class TurfServiceImpl implements TurfService {
+public class TurfBookingServiceImpl implements TurfBookingService {
 	
 	@Autowired
-	private TurfRepo turfRepo;
+	private TurfBookingRepo repo;
 	
 	private Set<String> staticSearchableFields;
 	
 	@PostConstruct
 	public void init() {
-		staticSearchableFields = getAllFileds(Turf.class);
+		staticSearchableFields = getAllFileds(TurfBooking.class);
 	}
 
 	private Set<String> getAllFileds(final Class<?> type) {
@@ -45,48 +45,46 @@ public class TurfServiceImpl implements TurfService {
 	}
 
 	@Override
-	public Turf save(Turf entity) {
-		return turfRepo.save(entity);
+	public TurfBooking save(TurfBooking entity) {
+		return repo.save(entity);
 	}
 
 	@Override
-	public List<Turf> save(List<Turf> entities) {
-		return turfRepo.saveAll(entities);
+	public List<TurfBooking> save(List<TurfBooking> entities) {
+		return repo.saveAll(entities);
 	}
 
 	@Override
-	public void deleteById(Integer id) {
-		turfRepo.deleteById(id);		
+	public void deleteById(String id) {
+		repo.deleteById(id);		
 	}
 
 	@Override
-	public Optional<Turf> findById(Integer id) {
-		return turfRepo.findById(id);
+	public Optional<TurfBooking> findById(String id) {
+		return repo.findById(id);
 	}
 
 	@Override
-	public List<Turf> findAll() {
-		return turfRepo.findAll();
+	public List<TurfBooking> findAll() {
+		return repo.findAll();
 	}
 
 	@Override
-	public Page<Turf> findAll(Pageable pageable) {
-		return turfRepo.findAll(pageable);
+	public Page<TurfBooking> findAll(Pageable pageable) {
+		return repo.findAll(pageable);
 	}
 
 	@Override
-	public Turf update(Turf entity, Integer id) {
-		Optional<Turf> optionalTurf = findById(id);
-		if(optionalTurf.isPresent())
-			return turfRepo.save(entity);
+	public TurfBooking update(TurfBooking entity, String id) {
+		Optional<TurfBooking> optionalTurfBooking = findById(id);
+		if(optionalTurfBooking.isPresent())
+			return repo.save(entity);
 		else
 			return null;
 	}
 
 	@Override
-	public Page<Turf> search(Map<String, String> searchCriteria, Pageable pageable) {
-		
+	public Page<TurfBooking> search(Map<String, String> searchCriteria, Pageable pageable) {
 		return null;
 	}
-
 }
