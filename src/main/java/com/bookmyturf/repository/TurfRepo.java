@@ -11,5 +11,6 @@ import com.bookmyturf.entity.Turf;
 @Repository
 public interface TurfRepo extends JpaRepository<Turf, Integer>, JpaSpecificationExecutor<Turf>{
 	List<Turf> findByApprovalStatus(String approvalStatus);
+	List<Turf> findByTurfStatus(String turfStatus);
 	List<Turf> findByTurfStatusAndApprovalStatus(String turfStatus, String approvalStatus);
 }

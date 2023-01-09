@@ -25,13 +25,13 @@ import com.bookmyturf.service.TurfBookingService;
 public class TurfBookingControllerImpl implements TurfBookingController {
 
 	@Autowired
-	TurfBookingRepo repo;
+	private TurfBookingRepo repo;
 	
 	@Autowired
-	TurfBookingMapper mapper;
+	private TurfBookingMapper mapper;
 	
 	@Autowired
-	TurfBookingService service;
+	private TurfBookingService service;
 	
 	private Logger log = LoggerFactory.getLogger(TurfBookingControllerImpl.class);
 	
@@ -61,6 +61,13 @@ public class TurfBookingControllerImpl implements TurfBookingController {
 	@GetMapping("/search")
 	public List<TurfBookingDTO> findAll() {
 		return mapper.asDTOList(service.findAll());
+	}
+	
+	@Override
+	@CrossOrigin("*")
+	@GetMapping("/search/createdby")
+	public List<TurfBookingDTO> findByCreatedBy(String createdBy) {
+		return mapper.asDTOList(service.findBycreatedBy(createdBy));
 	}
 
 }

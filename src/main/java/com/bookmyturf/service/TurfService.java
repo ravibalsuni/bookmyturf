@@ -15,5 +15,7 @@ public interface TurfService extends GenericService<Turf, Integer> {
 	List<Turf> findByapprovalStatus(String approvalStatus);
 	
 	List<Turf> findByTurfStatusAndApprovalStatus(String turfStatus, String approvalStatus);
+	
+	List<Turf> findByTurfStatus(String turfStatus);
 
 }

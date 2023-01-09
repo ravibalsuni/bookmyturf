@@ -6,8 +6,6 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import com.bookmyturf.dto.TurfBookingDTO;
-import com.bookmyturf.dto.TurfDTO;
-
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
@@ -23,4 +21,7 @@ public interface TurfBookingController {
 	
 	@ApiOperation("find all")
 	List<TurfBookingDTO> findAll();	
+	
+	@ApiOperation("find by created by")
+	List<TurfBookingDTO>findByCreatedBy(@Param("createdby")String createdBy);
 }

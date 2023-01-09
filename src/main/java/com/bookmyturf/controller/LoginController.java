@@ -1,6 +1,7 @@
 package com.bookmyturf.controller;
 
 import java.io.Serializable;
+import java.security.Principal;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,6 +44,7 @@ public class LoginController {
 	
 	@CrossOrigin("*")
 	@PostMapping("/authenticate")
+	@ApiImplicitParam(name = "role", value = "Enter role", required = true , allowEmptyValue = true, paramType = "header", dataTypeClass = String.class )
 	public ResponseEntity<Serializable> login(@RequestBody(required = true)LoginRequest loginRequest){
 		log.info("/authenticate api invoked!");
 		try {
@@ -53,5 +55,13 @@ public class LoginController {
 		}catch (Exception e) {
 			return ResponseEntity.badRequest().body("Failed to login");
 		}
+	}	
+	
+	@CrossOrigin("*")
+	@GetMapping("/getloggedinuser")
+	@ApiImplicitParam(name = "role", value = "Enter role", required = true , allowEmptyValue = true, paramType = "header", dataTypeClass = String.class )
+	public String getloggedinuser(Principal principal){
+		System.out.println(principal.toString());
+		return principal.getName();
 	}	
 }

@@ -75,5 +75,30 @@ public class TurfControllerImpl implements TurfController {
 		dtoResponse.setApprovalStatus("Approved");
 		return save(dtoResponse);
 	}
+	
+	@Override
+	@CrossOrigin("*")
+	@PostMapping("/update/status/available")
+	public TurfDTO updateAvailabilityStatus(TurfDTO dto) {
+		TurfDTO dtoResponse = findById(dto.getId());
+		dtoResponse.setTurfStatus("Available");
+		return save(dtoResponse);
+	}
+	
+	@Override
+	@CrossOrigin("*")
+	@PostMapping("/update/status/notavailable")
+	public TurfDTO updateAvailabilityStatusN(TurfDTO dto) {
+		TurfDTO dtoResponse = findById(dto.getId());
+		dtoResponse.setTurfStatus("Not Available");
+		return save(dtoResponse);
+	}
+
+	@Override
+	@CrossOrigin("*")
+	@GetMapping("/search/status/unavailable")
+	public List<TurfDTO> findByTurfStatus(String turfStatus) {
+		return mapper.asDTOList(service.findByTurfStatus("Available"));
+	}
 
 }

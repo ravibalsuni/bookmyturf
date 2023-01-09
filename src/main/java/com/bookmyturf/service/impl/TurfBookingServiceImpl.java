@@ -87,4 +87,9 @@ public class TurfBookingServiceImpl implements TurfBookingService {
 	public Page<TurfBooking> search(Map<String, String> searchCriteria, Pageable pageable) {
 		return null;
 	}
+
+	@Override
+	public List<TurfBooking> findBycreatedBy(String createdBy) {
+		return repo.findBycreatedBy(createdBy);
+	}
 }

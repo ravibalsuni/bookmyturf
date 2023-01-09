@@ -23,15 +23,6 @@ create table turf_Booking(
 	primary key(id)
 );
 
-create table turf_Availability(
-	id varchar(50) not null,
-	turf_id varchar(50) not null,
-	available_date varchar(50) not null,
-	available_time varchar(50) not null,
-	availability_status varchar(50)
-);
-
-
 GO
 CREATE SEQUENCE [dbo].[hibernate_sequence] 
  AS [bigint]
