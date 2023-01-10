@@ -11,4 +11,5 @@ import com.bookmyturf.entity.TurfBooking;
 @Repository
 public interface TurfBookingRepo extends JpaRepository<TurfBooking, String>, JpaSpecificationExecutor<TurfBooking>{
 	List<TurfBooking> findBycreatedBy(String createdBy);
+	List<TurfBooking> findBycreatedByAndBookingStatus(String createdBy,String bookingStatus);
 }

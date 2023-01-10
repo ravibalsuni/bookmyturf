@@ -23,5 +23,9 @@ public interface TurfBookingController {
 	List<TurfBookingDTO> findAll();	
 	
 	@ApiOperation("find by created by")
-	List<TurfBookingDTO>findByCreatedBy(@Param("createdby")String createdBy);
+	List<TurfBookingDTO> findByCreatedBy(@Param("createdby")String createdBy);
+	
+	@ApiOperation("find by booking status and created by")
+	List<TurfBookingDTO> findBycreatedByAndBookingStatus(@Param("createdby")String createdBy, @Param("bookingstatus")String bookingStatus);
+	
 }

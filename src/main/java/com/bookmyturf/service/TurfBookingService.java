@@ -12,5 +12,6 @@ public interface TurfBookingService extends GenericService<TurfBooking, String> 
 	
 	Page<TurfBooking> search(Map<String, String> searchCriteria, Pageable pageable);
 	List<TurfBooking> findBycreatedBy(String createdBy);
+	List<TurfBooking>findBycreatedByAndBookingStatus(String bookingStatus,String createdBy);
 
 }

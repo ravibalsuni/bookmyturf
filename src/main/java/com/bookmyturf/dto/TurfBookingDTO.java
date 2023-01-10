@@ -1,7 +1,5 @@
 package com.bookmyturf.dto;
 
-import java.util.Date;
-
 public class TurfBookingDTO extends AbstractDTO<Integer> {
 
 	private String turfId;

@@ -92,4 +92,9 @@ public class TurfBookingServiceImpl implements TurfBookingService {
 	public List<TurfBooking> findBycreatedBy(String createdBy) {
 		return repo.findBycreatedBy(createdBy);
 	}
+
+	@Override
+	public List<TurfBooking> findBycreatedByAndBookingStatus(String bookingStatus, String createdBy) {
+		return repo.findBycreatedByAndBookingStatus(createdBy,bookingStatus);
+	}
 }

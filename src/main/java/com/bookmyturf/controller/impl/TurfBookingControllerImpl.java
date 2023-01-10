@@ -70,4 +70,11 @@ public class TurfBookingControllerImpl implements TurfBookingController {
 		return mapper.asDTOList(service.findBycreatedBy(createdBy));
 	}
 
+	@Override
+	@CrossOrigin("*")
+	@GetMapping("/search/bookingstatus")
+	public List<TurfBookingDTO> findBycreatedByAndBookingStatus(String createdBy,String bookingStatus) {
+		return mapper.asDTOList(service.findBycreatedByAndBookingStatus(bookingStatus, createdBy));
+	}
+
 }
