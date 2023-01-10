@@ -55,12 +55,12 @@ public class TurfBookingServiceImpl implements TurfBookingService {
 	}
 
 	@Override
-	public void deleteById(String id) {
+	public void deleteById(Integer id) {
 		repo.deleteById(id);		
 	}
 
 	@Override
-	public Optional<TurfBooking> findById(String id) {
+	public Optional<TurfBooking> findById(Integer id) {
 		return repo.findById(id);
 	}
 
@@ -75,7 +75,7 @@ public class TurfBookingServiceImpl implements TurfBookingService {
 	}
 
 	@Override
-	public TurfBooking update(TurfBooking entity, String id) {
+	public TurfBooking update(TurfBooking entity, Integer id) {
 		Optional<TurfBooking> optionalTurfBooking = findById(id);
 		if(optionalTurfBooking.isPresent())
 			return repo.save(entity);
@@ -96,5 +96,10 @@ public class TurfBookingServiceImpl implements TurfBookingService {
 	@Override
 	public List<TurfBooking> findBycreatedByAndBookingStatus(String bookingStatus, String createdBy) {
 		return repo.findBycreatedByAndBookingStatus(createdBy,bookingStatus);
+	}
+
+	@Override
+	public List<TurfBooking> findByBookingStatus(String bookingStatus) {
+		return repo.findByBookingStatus(bookingStatus);
 	}
 }

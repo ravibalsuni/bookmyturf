@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.bookmyturf.controller.TurfBookingController;
 import com.bookmyturf.dto.TurfBookingDTO;
+import com.bookmyturf.dto.TurfDTO;
 import com.bookmyturf.entity.TurfBooking;
 import com.bookmyturf.mapper.TurfBookingMapper;
 import com.bookmyturf.repository.TurfBookingRepo;
@@ -24,9 +25,6 @@ import com.bookmyturf.service.TurfBookingService;
 @RequestMapping("api/turf/booking")
 public class TurfBookingControllerImpl implements TurfBookingController {
 
-	@Autowired
-	private TurfBookingRepo repo;
-	
 	@Autowired
 	private TurfBookingMapper mapper;
 	
@@ -48,7 +46,7 @@ public class TurfBookingControllerImpl implements TurfBookingController {
 	@Override
 	@CrossOrigin("*")
 	@PostMapping("/{id}")
-	public TurfBookingDTO findById(String id) {
+	public TurfBookingDTO findById(Integer id) {
 		Optional<TurfBooking> turfBookingOpt=service.findById(id);
 		if(turfBookingOpt.isPresent())
 			return mapper.asDTO(turfBookingOpt.get());
@@ -75,6 +73,22 @@ public class TurfBookingControllerImpl implements TurfBookingController {
 	@GetMapping("/search/bookingstatus")
 	public List<TurfBookingDTO> findBycreatedByAndBookingStatus(String createdBy,String bookingStatus) {
 		return mapper.asDTOList(service.findBycreatedByAndBookingStatus(bookingStatus, createdBy));
+	}
+
+	@CrossOrigin("*")
+	@PostMapping("/update/status")
+	@Override
+	public TurfBookingDTO updateApprovalStatus(TurfBookingDTO dto) {
+		TurfBookingDTO dtoResponse = findById(dto.getId());
+		dtoResponse.setBookingStatus("Approved");
+		return save(dtoResponse);
+	}
+
+	@Override
+	@CrossOrigin("*")
+	@GetMapping("/search/status/pending")
+	public List<TurfBookingDTO> findByBookingStatus() {
+		return mapper.asDTOList(service.findByBookingStatus("Pending"));
 	}
 
 }

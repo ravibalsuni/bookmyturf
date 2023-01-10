@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 
 import com.bookmyturf.entity.Turf;
 import com.bookmyturf.entity.TurfAvailability;
-import com.bookmyturf.entity.TurfBooking;
 
 @Repository
 public interface TurfAvailabilityRepo extends JpaRepository<TurfAvailability, String>, JpaSpecificationExecutor<Turf>{

@@ -9,7 +9,8 @@ import org.springframework.stereotype.Repository;
 import com.bookmyturf.entity.TurfBooking;
 
 @Repository
-public interface TurfBookingRepo extends JpaRepository<TurfBooking, String>, JpaSpecificationExecutor<TurfBooking>{
+public interface TurfBookingRepo extends JpaRepository<TurfBooking, Integer>, JpaSpecificationExecutor<TurfBooking>{
 	List<TurfBooking> findBycreatedBy(String createdBy);
 	List<TurfBooking> findBycreatedByAndBookingStatus(String createdBy,String bookingStatus);
+	List<TurfBooking>findByBookingStatus(String bookingStaus);
 }
