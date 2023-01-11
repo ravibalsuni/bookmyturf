@@ -101,4 +101,11 @@ public class TurfControllerImpl implements TurfController {
 		return mapper.asDTOList(service.findByTurfStatus("Available"));
 	}
 
+	@Override
+	@CrossOrigin("*")
+	@GetMapping("/search")
+	public List<TurfDTO> findAll() {
+		return mapper.asDTOList(service.findAll());
+	}
+
 }

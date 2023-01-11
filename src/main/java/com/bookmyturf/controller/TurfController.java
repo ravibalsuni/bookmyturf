@@ -4,9 +4,8 @@ import java.util.List;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
-import com.bookmyturf.dto.TurfDTO;
-import com.bookmyturf.entity.Turf;
 
+import com.bookmyturf.dto.TurfDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
@@ -16,6 +15,9 @@ public interface TurfController {
 	
 	@ApiOperation("add new data")
 	TurfDTO save(@RequestBody TurfDTO dto);
+	
+	@ApiOperation("find all")
+	List<TurfDTO> findAll();	
 	
 	@ApiOperation("find by id")
 	TurfDTO findById(@PathVariable("id") Integer id);
